@@ -1,11 +1,12 @@
 import React from 'react';
-// import { AddButton } from '../styles/componentStyles';
+import { StyledButton } from '../styles/componentStyles';
 
-const Button = ({ onClick, text, style }) => {
+const Button = ({ onClick, text, buttontype }) => {
+  console.log(buttontype);
   return (
-    <button onClick={onClick} style={style}>
+    <StyledButton onClick={onClick} text={text} buttontype={buttontype}>
       {text}
-    </button>
+    </StyledButton>
   );
 };
 

@@ -28,7 +28,7 @@ const AddList = () => {
       <input value={title} onChange={(e) => setTitle(e.target.value)} />
       <p>내용</p>
       <input value={content} onChange={(e) => setContent(e.target.value)} />
-      <Button onClick={handleTodoListAdd} text='추가하기' />
+      <Button onClick={handleTodoListAdd} text='추가하기' buttontype='add' />
     </AddListStyle>
   );
 };

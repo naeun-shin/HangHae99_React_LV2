@@ -8,6 +8,7 @@ import {
   WorkingButton,
 } from '../styles/componentStyles';
 import { useDispatch } from 'react-redux';
+import Button from './Button';
 
 const TodoList = ({ todoList }) => {
   const dispatch = useDispatch();
@@ -38,18 +39,23 @@ const TodoList = ({ todoList }) => {
               <h3>{item.title}</h3>
               <p>{item.content}</p>
               <WorkingButton>
-                <button onClick={() => handleRemoveListClick(item.id)}>
-                  삭제하기
-                </button>
-                <button onClick={() => handleMoveDoneListClick(item.id)}>
-                  완료
-                </button>
+                <Button
+                  onClick={() => handleRemoveListClick(item.id)}
+                  text='삭제하기'
+                  buttontype='remove'
+                ></Button>
+                <Button
+                  onClick={() => handleMoveDoneListClick(item.id)}
+                  text='완료'
+                  buttontype='complete'
+                ></Button>
               </WorkingButton>
             </WorkingComponentSytle>
           );
         }
         return null;
       })}
+      <br />
       <h2>Done</h2>
       {todoList.map((item) => {
         if (item.isDone) {
@@ -59,12 +65,16 @@ const TodoList = ({ todoList }) => {
               <h3>{item.title}</h3>
               <p>{item.content}</p>
               <WorkingButton>
-                <button onClick={() => handleRemoveListClick(item.id)}>
-                  삭제하기
-                </button>
-                <button onClick={() => handleCancelDoneListClick(item.id)}>
-                  취소
-                </button>
+                <Button
+                  onClick={() => handleRemoveListClick(item.id)}
+                  text='삭제하기'
+                  buttontype='remove'
+                />
+                <Button
+                  onClick={() => handleCancelDoneListClick(item.id)}
+                  text='취소'
+                  buttontype='cancel'
+                />
               </WorkingButton>
             </WorkingComponentSytle>
           );

@@ -50,22 +50,40 @@ const AddListStyle = styled.div`
 `;
 
 // 추가 버튼
-const AddButton = styled.button`
-  background-color: #017574;
+const StyledButton = styled.button`
+  cursor: pointer;
   width: 150px;
+
   padding: 15px;
   margin: 10px;
-  border-style: none;
-  border-radius: 5px;
-  font-size: 14px;
-  font-weight: bold;
-  color: white;
   margin-left: auto;
 
-  &:hover {
-    background-color: #015a57;
-  }
+  font-size: 14px;
+  font-weight: bold;
+
+  background-color: ${(props) => {
+    return props.buttontype === 'add'
+      ? props.theme.color.darkGreen
+      : 'transparent';
+  }};
+  color: ${(props) => {
+    return props.buttontype === 'add'
+      ? props.theme.color.white
+      : props.theme.color.black;
+  }};
+
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: ${(props) => {
+    if (props.buttontype === 'cancel' || props.buttontype === 'complete')
+      return props.theme.color.darkGreen;
+    else if (props.buttontype === 'remove') return props.theme.color.red;
+    else if (props.buttontype === 'goBack') return props.theme.color.ligtGrey;
+    else return 'transparent';
+  }};
 `;
+
 const WorkingStyle = styled.div`
   font-weight: bold;
   padding: 0px 10px;
@@ -131,7 +149,6 @@ const DetailToListButton = styled.button`
   font-weight: bold;
   width: 120px;
   border-radius: 5px;
-  border: 1px solid ${(props) => props.theme.color.ligtGrey};
 `;
 
 export {
@@ -139,7 +156,7 @@ export {
   Main,
   NavBar,
   AddListStyle,
-  AddButton,
+  StyledButton,
   WorkingStyle,
   WorkingListStyle,
   WorkingComponentSytle,

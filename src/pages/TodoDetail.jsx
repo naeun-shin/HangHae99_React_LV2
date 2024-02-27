@@ -1,10 +1,11 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import Button from '../components/Button';
 import {
   DetailBox,
   Detail,
-  DetailToListButton,
+  // DetailToListButton,
   DetailHeader,
   DetailTitle,
   DetailContent,
@@ -32,9 +33,11 @@ const TodoDetail = () => {
         <Detail>
           <DetailHeader>
             <p>ID : {todoId}</p>
-            <DetailToListButton onClick={HandleGoBackclick}>
-              이전으로
-            </DetailToListButton>
+            <Button
+              onClick={HandleGoBackclick}
+              text='이전으로'
+              buttontype='goBack'
+            />
           </DetailHeader>
           <DetailTitle>{details.title}</DetailTitle>
           <DetailContent>{details.content}</DetailContent>
