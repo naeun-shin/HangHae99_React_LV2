@@ -1,16 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+import { addTodo } from '../redux/modules/todos';
 import { AddListStyle } from '../styles/componentStyles';
+import Button from '../components/Button';
 
-// 버튼 컴포넌트 호출 필요
-// 추가 이벤트 핸들러 호출 필요
 const AddList = () => {
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const dispatch = useDispatch();
+
+  const handleTodoListAdd = () => {
+    const newTodo = {
+      id: uuidv4(),
+      title,
+      content,
+      isDone: false,
+    };
+    dispatch(addTodo(newTodo));
+    setTitle('');
+    setContent('');
+  };
+
   return (
     <AddListStyle>
       <p>제목 </p>
-      <input />
+      <input value={title} onChange={(e) => setTitle(e.target.value)} />
       <p>내용</p>
-      <input />
-      <button>추가하기</button>
+      <input value={content} onChange={(e) => setContent(e.target.value)} />
+      <Button onClick={handleTodoListAdd} text='추가하기' />
     </AddListStyle>
   );
 };

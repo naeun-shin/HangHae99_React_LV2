@@ -49,4 +49,59 @@ const AddListStyle = styled.div`
   }
 `;
 
-export { Container, Main, NavBar, AddListStyle };
+// 추가 버튼
+const AddButton = styled.button`
+  /* background-color: #017574; */
+  width: 150px;
+  padding: 15px;
+  margin: 10px;
+  border-style: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  margin-left: auto;
+
+  &:hover {
+    background-color: #015a57;
+    cursor: pointer;
+  }
+`;
+const WorkingStyle = styled.div`
+  font-weight: bold;
+  padding: 0px 10px;
+  margin: 10px;
+  border-radius: 10px;
+`;
+const WorkingListStyle = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  align-items: center;
+  padding: 0px 10px;
+`;
+const WorkingComponentSytle = styled.div`
+  margin: 5px 0px;
+  padding: 10px;
+  border: 4px solid #017574;
+  border-radius: 5px;
+  flex-basis: 200px;
+  flex-grow: 0;
+`;
+
+const WorkingButton = styled.div`
+  display: flex;
+  padding: 0px 35px;
+`;
+
+export {
+  Container,
+  Main,
+  NavBar,
+  AddListStyle,
+  AddButton,
+  WorkingStyle,
+  WorkingListStyle,
+  WorkingComponentSytle,
+  WorkingButton,
+};

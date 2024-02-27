@@ -17,30 +17,42 @@ const initialState = [
 
 // action value
 const ADD_TODO = 'todo/ADD_TODO';
-// const IS_DONE = 'todo/IS_DONE';
-// const IS_TODO = 'todo/IS_TODO';
+const ISDONE_TODO = 'todo/ISDONE_TODO';
+const CANCEL_TODO = 'todo/CANCEL_TODO';
+const REMOVE_TODO = 'todo/ROMOVE_TODO';
 
 // action creater
 export const addTodo = (todo) => ({
   type: ADD_TODO,
   payload: todo,
 });
-// export const isDone = (todo) => {
-//   return {
-//     type: IS_DONE,
-//     payload : todo
-//   };
-// };
-// export const isTodo = () => {
-//   return {
-//     type: IS_TODO,
-//   };
-// };
+
+export const isDoneTodo = (todo) => ({
+  type: ISDONE_TODO,
+  payload: todo,
+});
+export const cancelTodo = (todo) => ({
+  type: CANCEL_TODO,
+  payload: todo,
+});
+export const removeTodo = (todo) => ({
+  type: REMOVE_TODO,
+  payload: todo,
+});
 
 const todoReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
       return [...state, action.payload];
+    case ISDONE_TODO:
+    case CANCEL_TODO:
+      return state.map((todo) =>
+        todo.id === action.payload.id
+          ? { ...todo, isDone: action.payload.isDone }
+          : todo
+      );
+    case REMOVE_TODO:
+      return state.filter((todo) => todo.id !== action.payload);
     default:
       return state;
   }
