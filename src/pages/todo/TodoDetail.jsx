@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Button from '../components/Button';
+import Button from '../../components/button/Button';
 import {
   DetailBox,
   Detail,
@@ -9,7 +9,7 @@ import {
   DetailHeader,
   DetailTitle,
   DetailContent,
-} from '../styles/componentStyles';
+} from '../../styles/componentStyles';
 
 const TodoDetail = () => {
   const todoList = useSelector((state) => state.todo);

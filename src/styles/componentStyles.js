@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 // 전체 컨테이너 스타일
 const Container = styled.div`
@@ -102,13 +103,12 @@ const WorkingComponentSytle = styled.div`
   padding: 10px;
   border: 4px solid #017574;
   border-radius: 5px;
-  flex-basis: 200px;
   flex-grow: 0;
 `;
 
-const WorkingButton = styled.div`
-  display: flex;
-  padding: 0px 35px;
+const StyledLink = styled(Link)`
+  color: black;
+  text-decoration-line: none;
 `;
 
 const DetailBox = styled.div`
@@ -160,7 +160,7 @@ export {
   WorkingStyle,
   WorkingListStyle,
   WorkingComponentSytle,
-  WorkingButton,
+  StyledLink,
   DetailBox,
   Detail,
   DetailHeader,

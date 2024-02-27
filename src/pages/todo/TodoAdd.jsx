@@ -1,25 +1,28 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { addTodo } from '../redux/modules/todos';
-import { AddListStyle } from '../styles/componentStyles';
-import Button from '../components/Button';
+import { addTodo } from '../../redux/modules/todos';
+import { AddListStyle } from '../../styles/componentStyles';
+import Button from '../../components/button/Button';
 
-const AddList = () => {
+const TodoAdd = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const dispatch = useDispatch();
-
   const handleTodoListAdd = () => {
-    const newTodo = {
-      id: uuidv4(),
-      title,
-      content,
-      isDone: false,
-    };
-    dispatch(addTodo(newTodo));
-    setTitle('');
-    setContent('');
+    if (title !== '' && content !== '') {
+      const newTodo = {
+        id: uuidv4(),
+        title,
+        content,
+        isDone: false,
+      };
+      dispatch(addTodo(newTodo));
+      setTitle('');
+      setContent('');
+    } else {
+      alert('제목 및 내용을 입력해주세요!');
+    }
   };
 
   return (
@@ -33,4 +36,4 @@ const AddList = () => {
   );
 };
 
-export default AddList;
+export default TodoAdd;
