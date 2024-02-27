@@ -1,5 +1,6 @@
 //NOTE - false 인 경우엔 working 로딩 / true인 경우엔 done으로 로딩
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { removeTodo, isDoneTodo, cancelTodo } from '../redux/modules/todos';
 
 import {
@@ -32,7 +33,8 @@ const TodoList = ({ todoList }) => {
       {todoList.map((item) => {
         if (!item.isDone) {
           return (
-            <WorkingComponentSytle key={`working-${item.id}`}>
+            <WorkingComponentSytle key={item.id}>
+              <Link to={`/todoDetail/${item.id}`}> 상세보기 </Link>
               <h3>{item.title}</h3>
               <p>{item.content}</p>
               <WorkingButton>
@@ -52,7 +54,8 @@ const TodoList = ({ todoList }) => {
       {todoList.map((item) => {
         if (item.isDone) {
           return (
-            <WorkingComponentSytle key={`working-${item.id}`}>
+            <WorkingComponentSytle key={item.id}>
+              <Link to={`/todoDetail/${item.id}`}> 상세보기 </Link>
               <h3>{item.title}</h3>
               <p>{item.content}</p>
               <WorkingButton>

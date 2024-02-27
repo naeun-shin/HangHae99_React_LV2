@@ -51,7 +51,7 @@ const AddListStyle = styled.div`
 
 // 추가 버튼
 const AddButton = styled.button`
-  /* background-color: #017574; */
+  background-color: #017574;
   width: 150px;
   padding: 15px;
   margin: 10px;
@@ -64,7 +64,6 @@ const AddButton = styled.button`
 
   &:hover {
     background-color: #015a57;
-    cursor: pointer;
   }
 `;
 const WorkingStyle = styled.div`
@@ -94,6 +93,47 @@ const WorkingButton = styled.div`
   padding: 0px 35px;
 `;
 
+const DetailBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
+const Detail = styled.div`
+  border: 1px solid ${(props) => props.theme.color.ligtGrey};
+  width: 500px;
+  height: 400px;
+  border-radius: 5px;
+`;
+const DetailHeader = styled.div`
+  padding: 0px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+const DetailTitle = styled.div`
+  font-weight: bold;
+  padding: 0px 10px;
+  margin: 10px;
+  font-size: 30px;
+`;
+const DetailContent = styled.div`
+  font-weight: bold;
+  padding: 0px 10px;
+  margin: 10px;
+`;
+
+const DetailToListButton = styled.button`
+  padding: 10px 30px;
+  background-color: white;
+  font-weight: bold;
+  width: 120px;
+  border-radius: 5px;
+  border: 1px solid ${(props) => props.theme.color.ligtGrey};
+`;
+
 export {
   Container,
   Main,
@@ -104,4 +144,10 @@ export {
   WorkingListStyle,
   WorkingComponentSytle,
   WorkingButton,
+  DetailBox,
+  Detail,
+  DetailHeader,
+  DetailTitle,
+  DetailContent,
+  DetailToListButton,
 };

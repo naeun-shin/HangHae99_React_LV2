@@ -5,8 +5,6 @@ import { ThemeProvider } from 'styled-components';
 import theme from '../styles/theme';
 import { Container, Main } from '../styles/componentStyles';
 
-import Header from '../pages/Header';
-import AddList from '../pages/AddTodo';
 import TodoMain from '../pages/TodoMain';
 import TodoDetail from '../pages/TodoDetail';
 
@@ -16,11 +14,9 @@ const Router = () => {
       <Container>
         <Main>
           <BrowserRouter>
-            <Header />
-            <AddList />
             <Routes>
               <Route path='/' element={<TodoMain />} />
-              <Route path='/:id' element={<TodoDetail />} />
+              <Route path='todoDetail/:id' element={<TodoDetail />} />
             </Routes>
           </BrowserRouter>
         </Main>

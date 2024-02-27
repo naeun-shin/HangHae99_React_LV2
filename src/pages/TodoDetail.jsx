@@ -1,8 +1,14 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-// import list from '../shared/list';
-// import todo from '../redux/modules/todos';
+import {
+  DetailBox,
+  Detail,
+  DetailToListButton,
+  DetailHeader,
+  DetailTitle,
+  DetailContent,
+} from '../styles/componentStyles';
 
 const TodoDetail = () => {
   const todoList = useSelector((state) => state.todo);
@@ -21,12 +27,20 @@ const TodoDetail = () => {
     return <div>Todo가 없습니다!</div>;
   }
   return (
-    <div>
-      <p>ID : {todoId}</p>
-      <button onClick={HandleGoBackclick}>이전으로</button>
-      <h2>{details.title}</h2>
-      <p>{details.content}</p>
-    </div>
+    <>
+      <DetailBox>
+        <Detail>
+          <DetailHeader>
+            <p>ID : {todoId}</p>
+            <DetailToListButton onClick={HandleGoBackclick}>
+              이전으로
+            </DetailToListButton>
+          </DetailHeader>
+          <DetailTitle>{details.title}</DetailTitle>
+          <DetailContent>{details.content}</DetailContent>
+        </Detail>
+      </DetailBox>
+    </>
   );
 };
 

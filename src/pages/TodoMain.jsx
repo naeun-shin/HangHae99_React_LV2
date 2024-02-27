@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import TodoList from '../components/TodoList';
+import Header from '../pages/Header';
+import AddList from '../pages/AddTodo';
 import {
   Container,
   Main,
@@ -11,15 +13,19 @@ import {
 const TodoMain = () => {
   const todoList = useSelector((state) => state.todo);
   return (
-    <Container>
-      <Main>
-        <WorkingStyle>
-          <WorkingListStyle>
-            <TodoList todoList={todoList} />
-          </WorkingListStyle>
-        </WorkingStyle>
-      </Main>
-    </Container>
+    <>
+      <Header />
+      <AddList />
+      <Container>
+        <Main>
+          <WorkingStyle>
+            <WorkingListStyle>
+              <TodoList todoList={todoList} />
+            </WorkingListStyle>
+          </WorkingStyle>
+        </Main>
+      </Container>
+    </>
   );
 };
 
