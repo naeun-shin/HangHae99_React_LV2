@@ -11,7 +11,6 @@ import {
 
 const TodoContent = ({ todo }) => {
   const dispatch = useDispatch();
-  console.log(todo);
 
   // 삭제
   const handleListRemoveClick = (id) => {
