@@ -1,70 +1,23 @@
-# Getting Started with Create React App
+<h1> 💪TodoList 💪 by 나은</h1>
+  - 배포 링크 :https://hang-hae99-react-lv-1.vercel.app/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h2> 컴포넌트 구조는 자유롭게 구현해보세요. 😀 </h2>
+<h3> Components </h3>
+   <h4>ㄴ button </h4>
+     <h5> &nbsp; ㄴ Button.jsx => styleButton적용한 버튼 컴포넌트 </h5>
+      <h5>  &nbsp; ㄴ ButtonFunction.jsx => 버튼 기능들을 모아둔 컴포넌트 </h5>
+    <h4>  ㄴ todo </h4>
+     <h5>    &nbsp; ㄴ TodoContent.jsx => todoList 출력 컴포넌트  </h5>
+      <h5>  &nbsp; ㄴ TodoListSection.jsx => todoList의 working과 done을 분리한 컴포넌트  </h5>
+  
+---
+## 튜터님 피드백 - 주혜 매니저님
+1. 리덕스 액션 중에 todo의 isDone 상태를 업데이트 시키는 `IS_DONE`, `CANCEL` 리듀서는 하나로 만들어서 사용해 볼 수도 있을 것 같아요. 만약 추후에 todo의 상태가 true 또는 false 2개가 아닌 여러 개의 상태를 가질 수 있는 가능성을 고려하셨다고 해도 어차피 리듀서에서는 payload로 받은 새로운 상태를 그대로 사용하고 있기 때문에 UPDATE 리듀서 1개만 만들고, isDone 키 이름을 status 정도로 바꾸면 더 확장성에 좋을 것 같다는 생각이 듭니다.
 
-## Available Scripts
+2. 크게 중요한 건 아니지만 객체를 반환해주는 훅을 사용할 때는 바로 구조분해 할당을 사용할 수 도 있어요!
+   ```javascript
+   const params = useParams();
+   const todoId = params.id;
+   > const { id } = useParams();
 
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. '이전으로' 이동 버튼에 history('/')를 작성하셨는데 뒤로가기처럼 구현하기 위해서는 history(-1)로 작성해주셔야 해요. 만약 브라우저 주소창에 직접 url을 입력해서 페이지에 접근했다면 이전으로 버튼을 클릭했을 때 직전에 있었던 화면으로 이동해야 하지만 현재는 직전 페이지가 아닌 메인화면으로 이동하게 됩니다. 어떻게 상세 페이지에 접근했는지와 관계 없이 무조건 메인 화면으로 이동시키고 싶다면 '메인으로' 혹은 '목록으로' 등의 버튼 이름이 더 적합해 보여요.</P>
