@@ -1,7 +1,11 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { removeTodo, isDoneTodo, cancelTodo } from '../../redux/modules/todos';
+import {
+  removeTodo,
+  isDoneTodo,
+  cancelTodo,
+} from '../../redux/modules/todoSlice';
 import ButtonFunction from '../button/ButtonFunction';
 
 import {

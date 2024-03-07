@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { addTodo } from '../../redux/modules/todos';
+import { addTodo } from '../../redux/modules/todoSlice';
 import { AddListStyle } from '../../styles/componentStyles';
 import Button from '../../components/button/Button';
 
